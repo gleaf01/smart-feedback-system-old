@@ -1,0 +1,108 @@
+<!-- C:\TCS-Project\Smart-feedback-system\backend\templates\admin.html -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin Dashboard - Smart Feedback System</title>
+
+<!-- Flask static paths -->
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+<!-- Chart.js for visual analytics -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+<!-- Header -->
+<header>
+<h1>Smart Feedback Collection & Analysis System</h1>
+<p>Administrator Dashboard</p>
+</header>
+
+<div id="result" style="display: none; padding: 10px; margin: 15px auto; max-width: 90%; border-radius: 8px; text-align: center;">
+<!-- API messages (success or error) will appear here -->
+</div>
+
+<!-- Main Section -->
+
+<section class="admin-section">
+<div class="admin-dashboard">
+<h2>Feedback Analytics</h2>
+
+  <!-- Sentiment Stats (Cards) -->
+  <div class="stats-container">
+    <!-- These cards reflect data used in the charts -->
+    <div class="stat-card positive">
+      <h3>😊 Positive</h3>
+      <p id="positiveCount">0</p>
+    </div>
+    <div class="stat-card neutral">
+      <h3>😐 Neutral</h3>
+      <p id="neutralCount">0</p>
+    </div>
+    <div class="stat-card negative">
+      <h3>😞 Negative</h3>
+      <p id="negativeCount">0</p>
+    </div>
+  </div>
+
+  <!-- Sentiment Charts -->
+  <div class="chart-flex-container">
+    <div class="chart-box">
+      <h3>Sentiment Distribution (Pie)</h3>
+      <canvas id="sentimentPieChart"></canvas>
+    </div>
+    <div class="chart-box">
+      <h3>Sentiment Comparison (Bar)</h3>
+      <canvas id="sentimentBarChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Feedback Table & Filter Control -->
+  <div class="table-header-controls">
+    <h3>Feedback List</h3>
+    <label for="sentimentFilter">Filter by Sentiment:</label>
+    <select id="sentimentFilter" onchange="filterFeedback()">
+      <option value="All">All Feedback</option>
+      <option value="Positive">Positive</option>
+      <option value="Neutral">Neutral</option>
+      <option value="Negative">Negative</option>
+    </select>
+  </div>
+  
+  <table id="feedbackTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Feedback</th>
+        <th>Sentiment</th>
+        <th>Timestamp</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Feedback rows will be dynamically added here -->
+    </tbody>
+  </table>
+
+  <!-- Logout Button -->
+  <button class="back-btn" onclick="logout()">Logout</button>
+</div>
+
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+<p>© 2025 Smart Feedback System</p>
+</footer>
+</body>
+</html>

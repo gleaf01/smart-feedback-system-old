@@ -1,0 +1,48 @@
+<!-- Register.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - Smart Feedback System</title>
+  <link rel="stylesheet" href="css/register.css" />
+</head>
+<body>
+  <header>
+    <h1>Smart Feedback Collection & Analysis System</h1>
+    <p>AI-powered insights from user feedback in real time</p>
+  </header>
+
+  <section class="register-section">
+    <div class="register-box">
+      <h2>Create Your Account</h2>
+      <form id="registerForm">
+        <input type="text" id="regName" placeholder="Full Name" required />
+        <input type="email" id="regEmail" placeholder="Email Address" required />
+        <input type="password" id="regPassword" placeholder="Password" required />
+        <select id="regRole" required>
+          <option value="">Select Role</option>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+        <button type="submit">Register</button>
+      </form>
+      <button class="back-btn" onclick="goBack()">← Back to Home</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Smart Feedback System</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    // Local helper for back button
+    function goBack() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!-- C:\TCS-Project\Smart-feedback-system\frontend\public\Register.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - Smart Feedback System</title>
+
+  <!-- ✅ Correct Flask static linking -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Smart Feedback Collection & Analysis System</h1>
+    <p>AI-powered insights from user feedback in real time</p>
+  </header>
+
+  <!-- Register Section -->
+  <section class="register-section">
+    <div class="register-box">
+      <h2>Create Your Account</h2>
+
+  <div id="result" style="display: none; padding: 10px; margin-bottom: 15px; border-radius: 8px; text-align: center; border: 1px solid #ccc; background-color: #f9f9f9;">
+  <!-- API messages (success or error) will appear here -->
+  </div>
+
+      <form id="registerForm">
+        <input type="text" id="regName" placeholder="Full Name" required />
+        <input type="email" id="regEmail" placeholder="Email Address" required />
+        <input type="password" id="regPassword" placeholder="Password" required />
+
+        <select id="regRole" required>
+          <option value="">Select Role</option>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+
+        <button type="submit">Register</button>
+      </form>
+
+      <!-- ✅ Fixed Back button to use Flask route -->
+      <button class="back-btn" onclick="window.location.href='{{ url_for('feedback_bp.home') }}'">
+        ← Back to Home
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Smart Feedback System</p>
+  </footer>
+</body>
+</html>
+

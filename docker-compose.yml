@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: C:/TCS-Project/Smart-feedback-system/backend
+    container_name: smart-feedback-backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - C:/TCS-Project/Smart-feedback-system/backend/app:/app/app
+    environment:
+      - FLASK_ENV=development
+
+  frontend:
+    build:
+      context: C:/TCS-Project/Smart-feedback-system/frontend
+    container_name: smart-feedback-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - C:/TCS-Project/Smart-feedback-system/frontend/src:/app/src
+      - C:/TCS-Project/Smart-feedback-system/frontend/tailwind.config.cjs:/app/tailwind.config.cjs
+    depends_on:
+      - backend

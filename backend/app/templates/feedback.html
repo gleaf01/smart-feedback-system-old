@@ -1,0 +1,130 @@
+<!-- C:\TCS-Project\Smart-feedback-system\backend\templates\feedback.html -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback - Smart Feedback System</title>
+  <link rel="stylesheet" href="css/feedback.css" />
+</head>
+<body>
+  <div class="feedback-container">
+    <h2>Submit Feedback</h2>
+    <form id="feedbackForm">
+      <textarea id="feedbackInput" placeholder="Enter your feedback..." required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+    <div id="result"></div>
+    <h3>Sentiment Summary</h3>
+    <canvas id="sentimentChart" width="400" height="400"></canvas>
+    <button onclick="logout()">Logout / Back</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+ -->
+
+
+
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Feedback - Smart Feedback System</title>
+
+<!-- ✅ Flask static linking -->
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/feedback.css') }}">
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+<!-- Chart.js for visualizations -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+/* 🛠️ FIX: Updated CSS to center the buttons and add spacing /
+.history-container {
+margin-top: 20px; / Add space above buttons /
+display: flex;
+gap: 15px; / Space between buttons /
+justify-content: center; / Center the button group */
+}
+
+/* Optional: Improve general button appearance if using custom CSS /
+.logout-btn, #viewHistoryBtn {
+padding: 10px 15px;
+border-radius: 5px;
+cursor: pointer;
+border: 1px solid #ccc;
+background-color: #f0f0f0;
+}
+.logout-btn {
+background-color: #ffcccc; / Light red/exit color */
+border-color: #cc0000;
+color: #cc0000;
+}
+</style>
+
+</head>
+
+<body>
+<!-- Header -->
+<header>
+<h1>Smart Feedback Collection & Analysis System</h1>
+<p>AI-powered insights from user feedback in real time</p>
+</header>
+
+<!-- Feedback Section -->
+
+<section class="feedback-section">
+<div class="feedback-box">
+<h2 id="feedbackHeader">We Value Your Feedback</h2>
+<p>Share your thoughts and help us improve our services!</p>
+
+<!-- Feedback Form -->
+
+<form id="feedbackForm">
+<textarea id="feedbackInput" placeholder="Write your feedback here..." required></textarea>
+<button type="submit">Submit Feedback</button>
+</form>
+
+<!-- Sentiment Result Display -->
+
+<div id="result"></div>
+
+<!-- Sentiment Chart -->
+
+<h3>Sentiment Summary</h3>
+<canvas id="sentimentChart" width="300" height="300"></canvas>
+
+<div class="history-container">
+<!-- View History Button (Visibility handled by JS on load) -->
+<button id="viewHistoryBtn" class="back-btn" style="display:none;" onclick="window.location.href='{{ url_for('feedback_bp.user_history_page') }}'">
+View My History
+</button>
+
+<!-- Logout / Back to Home Button -->
+<button class="logout-btn" onclick="logout()">
+  ← Logout / Back to Home
+</button>
+
+
+</div>
+</div>
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+<p>© 2025 Smart Feedback System</p>
+</footer>
+</body>
+</html>

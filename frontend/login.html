@@ -1,0 +1,46 @@
+<!-- login.html -->
+
+
+<!-- login.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Smart Feedback System</title>
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+  <header>
+    <h1>Smart Feedback Collection & Analysis System</h1>
+    <p>AI-powered insights from user feedback in real time</p>
+  </header>
+
+  <section class="login-section">
+    <div class="login-box">
+      <h2>Welcome Back!</h2>
+      <form id="loginForm">
+        <input type="email" id="loginEmail" placeholder="Email Address" required />
+        <input type="password" id="loginPassword" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+      <p class="register-link">Don't have an account? <a href="register.html">Register here</a></p>
+      <button class="back-btn" onclick="goBack()">← Back to Home</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Smart Feedback System</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    // Local helper for back button
+    function goBack() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
